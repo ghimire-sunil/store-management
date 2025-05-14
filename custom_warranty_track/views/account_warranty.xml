@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="account_inherit_product_warranty" model="ir.ui.view">
+            <field name="name">account.inherit.product.warranty</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_draft']" position="after">
+                    <button name="action_form_opening" type="object" string="Warranty" invisible="state != 'posted'"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

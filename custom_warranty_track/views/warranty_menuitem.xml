@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+        <record id="view_product_warranty_list" model="ir.ui.view">
+            <field name="name">product.warranty.track.list</field>
+            <field name="model">product.warranty.track</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="customer_id"/>
+                    <field name="sale_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_product_warranty_form" model="ir.ui.view">
+            <field name="name">product.warranty.track.form</field>
+            <field name="model">product.warranty.track</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name='action_confirm' type='object' string='Confirm' class="btn-primary" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,expired,cancel"/>
+                        <button name='action_set_to_draft' type='object' string='Reset to Draft' class="btn-primary"/>
+                        <button name='check_if_expired' type='object' string='Expire' class="btn-primary"/>
+                        <button name='action_cancel' type='object' string='Cancel' class="btn-primary"/> 
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="sale_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <notebook>
+                            <page string="Products">
+                                <field name="line_ids">
+                                    <list editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="lot_no_product" widget="many2many_tags"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="warranty_menu_item_action" model="ir.actions.act_window">
+            <field name="name">Warranties</field>
+            <field name="res_model">product.warranty.track</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_product_warranty_root" name="Warranties" parent="sale.sale_order_menu" action="warranty_menu_item_action" sequence="50"/>
+    </data>
+</odoo>

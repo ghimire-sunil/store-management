@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        
+        <record id="view_account_move_warranty_wizard_tree" model="ir.ui.view">
+            <field name="name">account.move.warranty.wizard.tree</field>
+            <field name="model">account.move.warranty.wizard</field>
+            <field name="arch" type="xml">
+                <list editable="bottom">
+                    <field name="cust_id"/>
+                    <field name="invoice_name"/>
+                    <field name="sales_name"/>
+                    <field name="product_id_sold"/>
+                    <field name="starting_date"/>
+                    <field name="end_dates"/>
+                    <field name="order_line_id_picking" invisible="1"/>
+                    <button name="action_create_warranty_for_account" string="Warranty Confirm" type="object" />
+                </list>
+            </field>
+        </record>
+
+    </data>
+</odoo>
