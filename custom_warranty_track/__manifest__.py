@@ -11,13 +11,13 @@
     'license': 'LGPL-3',
 
     'depends': [
-        'base','stock','product','sale','account',
+        'base','stock','product','sale','account','repair',
     ],
 
     'data': [
         "security/ir.model.access.csv",
         "views/product_inherit.xml",
-        "views/sale_order_product_warranty_create.xml",
+        # "views/sale_order_product_warranty_create.xml",
         "views/warranty_menuitem.xml",
         "views/account_warranty.xml",
         "wizards/account_move_wizard.xml",

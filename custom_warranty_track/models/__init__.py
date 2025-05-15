@@ -1,1 +1,1 @@
-from .import product_inherit, sale_order
+from .import product_inherit, sale_order, repair_model_warranty
